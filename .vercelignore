@@ -1,0 +1,5 @@
+FightStellaris.ccnvs
+*.ccnvs
+.DS_Store
+relay
+.git

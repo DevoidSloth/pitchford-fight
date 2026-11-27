@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#2b1f6b">
+<title>Pitchford Fight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+<canvas id="hud"></canvas>
+
+<section id="home" class="screen">
+  <div class="logo"><span>PITCHFORD</span><svg viewBox="0 0 60 90" aria-hidden="true"><path d="M30 88V40M12 6v22q0 12 18 12t18-12V6M30 6v34" fill="none" stroke="#1c1b2e" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 88V40M12 6v22q0 12 18 12t18-12V6M30 6v34" fill="none" stroke="#ffd23f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="f">FIGHT</span></div>
+  <p class="tag">The family brawl. Pick a Pitchford, grab your cousins, settle it.</p>
+  <div class="panel homebox">
+    <label>Your name<input id="nick" maxlength="12" placeholder="Nickname" autocomplete="off"></label>
+    <button id="create" class="btn big">CREATE ROOM</button>
+    <div class="or">or join one</div>
+    <div class="joinrow"><input id="code" maxlength="4" placeholder="CODE" autocomplete="off" autocapitalize="characters"><button id="join" class="btn blue">JOIN</button></div>
+    <div id="homeStatus"></div>
+  </div>
+  <p class="help">Desktop: WASD move · mouse aim · click attack · Space Super &nbsp;|&nbsp; Phone: left thumb moves · tap to auto-aim and shoot · drag the right thumb to aim</p>
+</section>
+
+<section id="lobby" class="screen hidden">
+  <div class="lobbyhead">
+    <button id="leave" class="btn small gray">← LEAVE</button>
+    <div class="codebox">ROOM <b id="roomCode">----</b><span id="shareRow"><button id="copy" class="btn small blue">COPY INVITE LINK</button></span></div>
+    <div id="offlineNote" class="hidden">Offline — bots only</div>
+  </div>
+  <div class="lobbygrid">
+    <div class="panel">
+      <h2>Mode</h2>
+      <div id="modes"></div>
+      <label id="fillRow" class="check"><input type="checkbox" id="fill"> Fill empty spots with bots</label>
+      <h2>Players</h2>
+      <div id="players"></div>
+    </div>
+    <div class="panel">
+      <h2>Choose your fighter</h2>
+      <div id="chars"></div>
+      <div id="charInfo"></div>
+    </div>
+  </div>
+  <div class="lobbyfoot">
+    <button id="start" class="btn big">START MATCH</button>
+    <div id="waiting" class="hidden"></div>
+    <small class="hostnote">The host’s device runs the match — host, keep this tab open and in front.</small>
+  </div>
+</section>
+
+<section id="results" class="screen hidden">
+  <h1 id="resTitle"></h1>
+  <p id="resSub"></p>
+  <div id="resList" class="panel"></div>
+  <button id="again" class="btn big">BACK TO LOBBY</button>
+</section>
+
+<div id="toast"></div>
+
+<script src="https://unpkg.com/three@0.149.0/build/three.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/sim.js"></script>
+<script src="js/view.js"></script>
+<script src="js/render.js"></script>
+<script src="js/net.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
